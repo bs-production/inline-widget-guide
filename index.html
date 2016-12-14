@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>[[title]]</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="description" content="[[description]]">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>	
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 170px;
+    font-family: 'Titillium Web', sans-serif;
+}
+a.guide-home {
+    position: absolute;
+    z-index: 9999;
+    font-size: 12px;
+    color: #353535;
+    background: rgba(255, 255, 255, 0.5);
+    top: 0;
+    left: 0;
+    padding: 5px 10px;
+    border-radius: 0 0 3px 0;
+}
+.header {
+        background-image: repeating-linear-gradient(-45deg, rgb(200,210,215) 0px,rgb(200,210,215)1px,rgb(180,200,190)1px, rgb(180,200,190) 6px);
+    position: fixed;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 0;
+    left: 50%;
+    z-index: 999;
+    width: 100%;
+    box-shadow: 0px -10px 20px rgba(0,0,0,.1) inset;
+    height: 170px;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 20px auto 10px;
+    padding: 0px 10px;
+    text-align: center;
+    color: #428664;
+    font-size: 56px;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.75);
+}
+h1,h2,p {
+    line-height: 1.2em;
+}
+.navbar {
+    padding: 0px 20px;
+    overflow-x: scroll;
+}
+
+.navbar ul {
+    text-align: center;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 720px;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin: 0px auto 10px;
+    padding: 10px 5px;
+}
+
+.navbar ul li a {
+    padding: 5px 15px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #505050;
+    background: rgba(255,255,255,.5);
+    border-radius: 3px;
+    transition: all .2s ease;
+}
+.navbar ul li a:hover {
+    background: #428664;
+    color: #fff;
+}
+
+#content-wrapper {
+    padding: 0px 30px 30px;
+    background: #fff;
+}
+
+h2 {
+    font-size: 60px;
+    margin: 0;
+    line-height: 100%;
+    font-weight: bold;
+    color: #d9d9d9;
+    padding-left: 100px;
+    text-shadow: -2px 0px 0px #fff;
+    border-top: 5px dashed #d9d9d9;
+    padding-top: 40px;
+}
+
+div.template:not(:first-of-type) h2 {
+    margin-top: 40px;
+}
+
+p {
+    font-size: 20px;
+    padding-left: 100px;
+    color: #888;
+}
+a {
+    color: #353535;
+    font-size: 14px;
+}
+a:hover {
+    text-decoration: underline;
+}
+a i {
+    margin-left: 7px;
+    font-size: 14px;
+}
+.slider-item a {
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 60px;
+    left: 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px
+}
+
+.slider-wrap {
+    height: 750px;
+    overflow: hidden;
+    position: relative;
+}
+.slider-item {
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 750px;
+    position: relative;
+}
+.slider-item .row {
+    height: 100%;
+}
+/* Slider arrow styles */
+
+button.slick-arrow {
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    border-color: rgb(217, 217, 217);
+    border-style: solid;
+    padding: 0px;
+    position: absolute;
+    z-index: 10;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
+    top: 35%;
+    transition: border-color .2s ease;
+    font-size: 0;
+    outline: none;
+}
+button.slick-arrow:hover {
+    border-color: rgb(117, 117, 117)
+}
+button.slick-prev {
+    left: 30px;
+    border-width: 0px 0px 5px 5px;
+}
+button.slick-next {
+    right: 30px;
+    border-width: 5px 5px 0px 0px;
+}
+/*** Slick Slider Dots ***/
+/* Dots */
+
+.slick-slider {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+.slick-dots {
+    position: absolute;
+    bottom: 15px;
+    margin: 0px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+.slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus {
+    outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+    opacity: 1;
+}
+.slick-dots li button:before {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 60px;
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '\2022';
+    text-align: center;
+    opacity: .25;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #000;
+}
+
+/* Spruce */
+div#spruce {
+background: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/spruce-leaf.jpg') no-repeat -15px 30px;
+    background-size: 120px;
+}
+#spruce h2, #spruce p {
+    color: #54655b;
+}
+.slider-item.spruce.slide1 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/spruce-Remodeling-Concepts.jpg'); 
+}
+.slider-item.spruce.slide2 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/spruce-Arrow.jpg'); 
+}
+.slider-item.spruce.slide3 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/spruce-Dream-Home.jpg');
+}
+
+/* Oak */
+div#oak {
+    background: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/oak-leaf.jpg') no-repeat -10px 20px;
+    background-size: 120px;
+}
+#oak h2, #oak p {
+    color: #5d524d;
+}
+.slider-item.oak.slide1 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/afs-AFS.jpg'); 
+}
+.slider-item.oak.slide2 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/afs-MasterDry.jpg'); 
+}
+.slider-item.oak.slide3 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/afs-MidAmerica.jpg'); 
+}
+.slider-item.oak.slide4 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/afs-Saber.jpg'); 
+}
+
+/* Dogwood */
+div#dogwood {
+background: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/dogwood-leaf.jpg') no-repeat -10px 20px;
+    background-size: 125px;
+}
+#dogwood h2, #dogwood p {
+    color: #4e555f;
+}
+.slider-item.dogwood.slide1 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DESdr-Ayers.jpg'); 
+}
+.slider-item.dogwood.slide2 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DESdr-CTDES.jpg'); 
+}
+.slider-item.dogwood.slide3 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DESdr-DelMarVa.jpg'); 
+}
+
+/* Dogwood Lite */
+div#dogwood-lite {
+    background: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/dogwood-lite-leaf.jpg') no-repeat -10px 30px;
+    background-size: 120px;
+}
+#dogwood-lite h2, #dogwood-lite p {
+    color: #939ba7;
+}
+#dogwood-lite h2 span {
+    font-weight: normal;
+}
+.slider-item.dogwood-lite.slide1 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DEShvac-GeoFurnace.jpg'); 
+}
+.slider-item.dogwood-lite.slide2 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DEShvac-GSM.jpg'); 
+}
+.slider-item.dogwood-lite.slide3 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DEShvac-Meacham.jpg'); 
+}
+.slider-item.dogwood-lite.slide4 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/DEShvac-PipeWorks.jpg'); 
+}
+
+/* Willow */
+div#willow {
+    background: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/willow-leaf-2.jpg') no-repeat -1px 19px;
+    background-size: 110px;
+}
+#willow h2, #willow p {
+    color: #a2ad97;
+}
+.slider-item.willow.slide1 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/healthy-CTBS.jpg'); 
+}
+.slider-item.willow.slide2 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/healthy-Healthy-BS.jpg'); 
+}
+.slider-item.willow.slide3 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/healthy-Quality-1st.jpg'); 
+}
+
+/* Wonderboom */
+div#wonderboom {
+    background: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/wonderboom-leaf-2.jpg') no-repeat 0px 40px;
+    background-size: 100px;
+}
+#wonderboom h2, #wonderboom p {
+    color: #6c5d75;
+}
+.slider-item.wonderboom.slide1 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/wonderboom-buck-buckley.jpg'); 
+}
+.slider-item.wonderboom.slide2 {
+    background-image: url('http://d6449bb3dc657045bfc9-290115cc0d6de62a29c33db202ae565c.r80.cf1.rackcdn.com/694/wonderboom-finished-basements-plus.jpg'); 
+}
+/* Scroll to Top Button */
+a#scrollToTop {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background: rgba(66, 134, 100, 0.85);
+    border-radius: 5px;
+    padding: 10px 15px 10px 5px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    z-index: 9999;
+    cursor: pointer;
+}
+a#scrollToTop .fa {
+    margin-right: 10px;
+}
+@media screen and (max-width: 1024px) {
+
+    h1 { font-size: 28px;}
+    navbar ul li a { font-size: 16px;}
+    h2 { font-size: 24px; padding-left: 0; }
+    p { font-size: 18px; padding-left: 0; }
+    .slider-wrap, .slider-item { height: 250px; }
+    .slider-item a { 
+        top: 0; 
+        bottom: auto; 
+        font-size: 14px;
+        text-align: left;
+        width: 100%
+    }
+    div.template h2 {
+        border-width: 2px;
+    }
+    div.template {
+        background: none !important;
+    }
+}
+@media screen and (max-width: 640px) {
+    h1 {margin-top: 35px;}
+}
+</style>
+	</head>
+	<body>
+
+    <div class="header">
+  <h1>Treehouse Template Guide</h1>
+  <div class="navbar">
+  <ul>
+    <li><a href="#spruce">Spruce</a></li>
+    <li><a href="#oak">Oak</a></li>
+    <li><a href="#dogwood">Dogwood</a></li>
+    <li><a href="#dogwood-lite">Dogwood Lite</a></li>
+    <li><a href="#willow">Willow</a></li>
+    <li><a href="#wonderboom">Wonderboom</a></li>
+  </ul>
+      <a class="guide-home" href="/demo/style-guide.html">Back to Style Guide</a>
+     </div>
+</div>
+
+
+    <div id="content-wrapper">
+<div class="template" id="spruce"><h2>Spruce</h2>
+<p>Primarily used for Contractor Nation companies.
+<a class="demo" href="http://devtest22.basementsite.com" target="_blank">View Demo</a></p>
+<div class="slider-wrap">
+    <div class="slider-item spruce slide1"><a href="http://remodelingconcepts.net" target="_blank">Remodeling Concepts<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item spruce slide2"><a href="http://www.arrowrenovation.com/" target="_blank">Arrow Renovation<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item spruce slide3"><a href="http://dhremodeling.com" target="_blank">Dream Home Remodeling<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+</div>
+</div>
+<div class="template" id="oak">
+<h2>Oak</h2>
+<p>Primarily used for FSI, Poly, BS and CS dealers who <strong>don't</strong> use "All Things Basementy" or Umbrella branding.
+<a class="demo" href="http://devtest5.basementsite.com" target="_blank">View Demo</a></p>
+<div class="slider-wrap">
+    <div class="slider-item oak slide1"><a href="http://afsrepair.com" target="_blank">Alabama Foundation Specialists<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item oak slide2"><a href="http://masterdry.com" target="_blank">MasterDry<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item oak slide3"><a href="http://midamericabasementsystems.com" target="_blank">MidAmerica Basement Systems<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item oak slide4"><a href="http://saberfoundations.com" target="_blank">Saber Foundations<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+</div>
+</div>
+<div class="template" id="dogwood">
+<h2>Dogwood</h2>
+<p>Primarily used for DES dealers with Docter branding or insulation focus.
+<a class="demo" href="http://devtest19.basementsite.com" target="_blank">View Demo</a></p>
+<div class="slider-wrap">
+    <div class="slider-item dogwood slide1"><a href="http://www.westernmichigandrenergysaver.com/" target="_blank">Ayers Dr. Energy Saver<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item dogwood slide2"><a href="http://ctdrenergysaver.com" target="_blank">Dr. Energy Saver of Connecticut<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item dogwood slide3"><a href="http://delmarvadrenergysaver.com" target="_blank">Delmarva Dr. Energysaver<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+</div>
+</div>
+<div class="template" id="dogwood-lite">
+<h2>Dogwood <span>Lite</span></h2>
+<p>Primarily used for DES dealers with HVAC focus.
+<a class="demo" href="http://devtest2.basementsite.com" target="_blank">View Demo</a></p>
+<div class="slider-wrap">
+    <div class="slider-item dogwood-lite slide1"><a href="http://www.geofurnace.com/" target="_blank">GeoFurnace<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item dogwood-lite slide2"><a href="http://gsmsince1927.com" target="_blank">GSM Services<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item dogwood-lite slide3"><a href="http://www.markemeacham.com/" target="_blank">Meacham<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item dogwood-lite slide4"><a href="http://pipeworksservices.com/?variationid=509" target="_blank">PipeWorks Services<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+</div>
+</div>
+<div class="template" id="willow">
+<h2>Willow</h2>
+<p>Primarily used for Basement Systems dealers with Umbrella and "All Things Basementy" branding.
+<a class="demo" href="http://template-willow.basementsite.com/" target="_blank">View Demo</a></p>
+<div class="slider-wrap">
+    <div class="slider-item willow slide1"><a href="http://connecticutbasementsystems.com" target="_blank">Connecticut Basement Systems<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item willow slide2"><a href="http://healthybasementsystems.com" target="_blank">Healthy Basement Systems<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item willow slide3"><a href="http://quality1stbasementsystems.com" target="_blank">Quality 1st Basement Systems<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+</div>
+</div>
+<div class="template" id="wonderboom">
+<h2>Wonderboom</h2>
+<p>Primarily used for TBF dealers.
+<a class="demo" href="http://devtest152.basementsite.com/" target="_blank">View Demo</a></p>
+<div class="slider-wrap">
+    <div class="slider-item wonderboom slide1"><a href="http://buckbuckleystotalbasementfinishing.com" target="_blank">Buck Buckley's Total Basement Finishing<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+    <div class="slider-item wonderboom slide2"><a href="http://finishedbasementsplus.com" target="_blank">Finished Basements Plus<i class="fa fa-external-link" aria-hidden="true"></i>
+</a></div>
+</div>
+</div>
+<a id="scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i>Top</a>
+</div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script> 
+
+<script>
+    //For Template Sliders
+     $('.slider-wrap').slick({
+        autoplay: false,
+        arrows: true,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: false,
+        cssEase: 'ease',
+        responsive: [
+            {
+              breakpoint: 640,
+              settings: {
+                arrows: false,
+                dots: true
+              }
+            }
+        ]
+    });
+    
+    //Scroll to top button
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 100) {
+            $('#scrollToTop').fadeIn();
+        } else {
+            $('#scrollToTop').fadeOut();
+        }
+    });
+    $('#scrollToTop').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+    });
+    
+    //Scroll to links
+    $("a[href^=#]").click(function(e) { e.preventDefault(); var dest = $(this).attr('href'); console.log(dest); $('html,body').animate({ scrollTop: $(dest).offset().top -170 }, 'slow'); });
+    
+</script>
+
+	</body>
+</html>
